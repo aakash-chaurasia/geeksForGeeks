@@ -230,5 +230,6 @@ class linkedFunc {
             }
             return head;
         }
+
     }
 }
