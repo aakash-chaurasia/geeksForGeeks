@@ -4,8 +4,8 @@ package LinkedList;
  * Created by achaurasia on 7/11/16.
  */
 public class LinkedMain {
-    private static node head = null;
-    private static linkedFunc linkFunc = null;
+    private static node head = null, head1 = null;
+    private static linkedFunc linkFunc = null, linkFunc1 = null;
     public static void main(String args[]) {
         linkFunc = new linkedFunc();
         head = linkFunc.append(head, 10);
@@ -22,7 +22,20 @@ public class LinkedMain {
         System.out.println("Recursive size is " + linkFunc.recurSize(head));
         System.out.println("Iterative search is " + linkFunc.iterSearch(head, 22));
         System.out.println("Recursive search is " + linkFunc.recurSearch(head, 8));
+        System.out.println("Nth node is  = " + linkFunc.getNthNode(head, 2).data);
+        //head = linkFunc.reverseListiter(head);
+        linkFunc.reverseListRecur(head);
+        head = linkFunc.head;
         linkFunc.printList(head);
+        linkFunc1 = new linkedFunc();
+        linkFunc1.append(head1, 4);
+        linkFunc1.append(head1, 5);
+        linkFunc1.append(head1, 6);
+        linkFunc1.append(head1, 6);
+        linkFunc1.append(head1, 5);
+        linkFunc1.append(head1, 4);
+        boolean result = linkFunc1.ispalindrome(head1);
+        System.out.println("result = " + result);
         /*head = linkFunc.deleteAt(head, 0);
         linkFunc.printList(head);
         head = linkFunc.delete(head, 8);

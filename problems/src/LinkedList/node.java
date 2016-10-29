@@ -1,5 +1,7 @@
 package LinkedList;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 /**
  * Created by achaurasia on 7/13/16.
  */
@@ -20,6 +22,8 @@ public class node {
 }
 
 class linkedFunc {
+
+    public node head;
 
     public void printList(node head)
     {
@@ -234,4 +238,58 @@ class linkedFunc {
         }
 
     }
+
+    public node getNthNode(node head, int index) {
+        node temp = head;
+        while(temp != null && index-- >= 0) {
+            temp = temp.next;
+        }
+        if(temp != null) {
+            return temp;
+        }
+        System.out.println("Node doesn't exits");
+        return temp;
+    }
+
+    public node reverseListiter(node head) {
+        node prev = null;
+        node curr = head;
+        node next = null;
+        while(curr != null) {
+            next = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = next;
+        }
+        return prev;
+    }
+
+    public node reverseListRecur(node curr) {
+        if(curr.next == null) {
+            head = curr;
+            return head;
+        }
+
+        node next = reverseListRecur(curr.next);
+        next.next = curr;
+        curr.next = null;
+        return curr;
+    }
+    node temphead = null;
+    public boolean ispalindrome(node curr) {
+        if(temphead ==  null) {
+            temphead = curr;
+        }
+        if(curr == null) {
+            return true;
+        }
+        boolean isp = ispalindrome(curr.next);
+        if(isp && curr.data == temphead.data) {
+            temphead = temphead.next;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
