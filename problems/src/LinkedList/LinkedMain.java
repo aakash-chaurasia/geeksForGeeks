@@ -22,6 +22,8 @@ public class LinkedMain {
         System.out.println("Recursive size is " + linkFunc.recurSize(head));
         System.out.println("Iterative search is " + linkFunc.iterSearch(head, 22));
         System.out.println("Recursive search is " + linkFunc.recurSearch(head, 8));
+        System.out.println("Nth node is  = " + linkFunc.getNthNode(head, 2).data);
+        head = linkFunc.reverseListiter(head);
         linkFunc.printList(head);
         /*head = linkFunc.deleteAt(head, 0);
         linkFunc.printList(head);
