@@ -23,6 +23,8 @@ public class node {
 
 class linkedFunc {
 
+    public node head;
+
     public void printList(node head)
     {
         System.out.println("\nList started\n");
@@ -261,4 +263,33 @@ class linkedFunc {
         }
         return prev;
     }
+
+    public node reverseListRecur(node curr) {
+        if(curr.next == null) {
+            head = curr;
+            return head;
+        }
+
+        node next = reverseListRecur(curr.next);
+        next.next = curr;
+        curr.next = null;
+        return curr;
+    }
+    node temphead = null;
+    public boolean ispalindrome(node curr) {
+        if(temphead ==  null) {
+            temphead = curr;
+        }
+        if(curr == null) {
+            return true;
+        }
+        boolean isp = ispalindrome(curr.next);
+        if(isp && curr.data == temphead.data) {
+            temphead = temphead.next;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
